@@ -24,9 +24,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      format.html { redirect_to @post, notice: 'Post was successfully created.' }
+      redirect_to @post, notice: 'Post was successfully created.'
     else
-      format.html { render :new }
+      render :new
     end
 
   end
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+      redirect_to @post, notice: 'Post was successfully updated.'
     else
       format.html { render :edit }
     end
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
-    format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+    redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private
